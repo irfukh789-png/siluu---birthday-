@@ -1,1 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#08080d">
+<title>For Siluu — With Love, Sania</title>
 
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:#08080d;
+  color:#f7f3ee;
+  font-family:'Inter',sans-serif;
+  overflow-x:hidden;
+}
+
+/* ---------- INTRO ---------- */
+
+.intro{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  background:
+    radial-gradient(circle at 50% 40%,#25202d 0%,#0d0c13 45%,#050509 100%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  transition:opacity 1.2s ease, visibility 1.2s;
+}
+
+.intro.hide{
+  opacity:0;
+  visibility:hidden;
+}
+
+.intro-inner{
+  padding:30px;
+  animation:fadeUp 1.5s ease forwards;
+}
+
+.eyebrow{
+  font-size:10px;
+  letter-spacing:5px;
+  text-transform:uppercase;
+  color:#b7a9b8;
+  margin-bottom:25px;
+}
+
+.intro h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(48px,13vw,100px);
+  font-weight:500;
+  line-height:.9;
+  letter-spacing:-2px;
+}
+
+.intro h1 span{
+  display:block;
+  font-style:italic;
+  color:#d9b9cc;
+}
+
+.intro-sub{
+  margin:28px auto 35px;
+  max-width:350px;
+  color:#aaa4ad;
+  font-size:13px;
+  line-height:1.8;
+}
+
+.enter-btn{
+  border:1px solid rgba(255,255,255,.2);
+  background:rgba(255,255,255,.04);
+  color:white;
+  padding:14px 27px;
+  border-radius:50px;
+  letter-spacing:2px;
+  font-size:10px;
+  cursor:pointer;
+  transition:.4s;
+}
+
+.enter-btn:hover{
+  background:#fff;
+  color:#111;
+  transform:translateY(-3px);
+}
+
+/* ---------- GLOBAL ---------- */
+
+main{
+  position:relative;
+}
+
+section{
+  min-height:100vh;
+  padding:110px 22px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+}
+
+.container{
+  width:min(900px,100%);
+  margin:auto;
+}
+
+.section-number{
+  font-size:10px;
+  letter-spacing:4px;
+  color:#8e8390;
+  margin-bottom:25px;
+}
+
+.serif{
+  font-family:'Cormorant Garamond',serif;
+}
+
+/* ---------- HERO ---------- */
+
+.hero{
+  min-height:100vh;
+  text-align:center;
+  background:
+    radial-gradient(circle at 50% 35%,rgba(145,94,125,.16),transparent 35%),
+    #08080d;
+  overflow:hidden;
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+}
+
+.hero-small{
+  color:#aaa1ab;
+  font-size:11px;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  margin-bottom:20px;
+}
+
+.hero h2{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:500;
+  font-size:clamp(70px,17vw,150px);
+  line-height:.75;
+  letter-spacing:-5px;
+}
+
+.hero h2 span{
+  display:block;
+  color:#d9b9cc;
+  font-style:italic;
+}
+
+.hero-description{
+  max-width:440px;
+  margin:40px auto 0;
+  color:#aaa6ad;
+  font-size:13px;
+  line-height:1.9;
+}
+
+/* particles */
+
+.particle{
+  position:absolute;
+  width:2px;
+  height:2px;
+  background:#d9b9cc;
+  border-radius:50%;
+  opacity:.35;
+  animation:float 8s infinite ease-in-out;
+}
+
+/* ---------- LETTER ---------- */
+
+.letter-section{
+  background:
+    linear-gradient(180deg,#08080d,#0e0c12,#08080d);
+}
+
+.letter{
+  max-width:720px;
+}
+
+.letter-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(42px,10vw,72px);
+  font-weight:500;
+  line-height:1;
+  margin-bottom:40px;
+}
+
+.letter p{
+  color:#c1bcc2;
+  font-size:15px;
+  line-height:2;
+  margin-bottom:23px;
+}
+
+.highlight{
+  color:#ead3df;
+}
+
+.signature{
+  margin-top:45px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:29px;
+  font-style:italic;
+  color:#d9b9cc;
+}
+
+/* ---------- CARDS ---------- */
+
+.cards-section{
+  background:#0a090e;
+}
+
+.cards-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(42px,10vw,70px);
+  font-weight:500;
+  margin-bottom:50px;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+}
+
+.card{
+  min-height:210px;
+  padding:27px;
+  border:1px solid rgba(255,255,255,.08);
+  background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.015));
+  backdrop-filter:blur(12px);
+  border-radius:20px;
+  transition:.5s;
+}
+
+.card:hover{
+  transform:translateY(-7px);
+  border-color:rgba(217,185,204,.35);
+}
+
+.card-icon{
+  font-size:25px;
+  margin-bottom:30px;
+}
+
+.card h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:28px;
+  font-weight:600;
+  margin-bottom:9px;
+}
+
+.card p{
+  color:#99949d;
+  font-size:12px;
+  line-height:1.7;
+}
+
+/* ---------- EID ---------- */
+
+.eid-section{
+  text-align:center;
+  background:
+    radial-gradient(circle at center,rgba(109,80,104,.16),transparent 45%),
+    #08080d;
+}
+
+.eid-content{
+  max-width:650px;
+}
+
+.eid-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(48px,11vw,82px);
+  font-weight:500;
+  line-height:.95;
+}
+
+.eid-text{
+  margin:30px auto;
+  color:#aaa4ad;
+  line-height:1.9;
+  font-size:14px;
+}
+
+.reveal-btn{
+  margin-top:15px;
+  padding:15px 28px;
+  border-radius:50px;
+  border:1px solid rgba(217,185,204,.4);
+  color:#ead3df;
+  background:rgba(217,185,204,.06);
+  cursor:pointer;
+  font-size:11px;
+  letter-spacing:2px;
+  transition:.4s;
+}
+
+.reveal-btn:hover{
+  background:#d9b9cc;
+  color:#171219;
+}
+
+.food-reveal{
+  max-height:0;
+  overflow:hidden;
+  opacity:0;
+  transition:1s ease;
+}
+
+.food-reveal.show{
+  max-height:300px;
+  opacity:1;
+  margin-top:35px;
+}
+
+.food-reveal p{
+  font-family:'Cormorant Garamond',serif;
+  font-size:29px;
+  line-height:1.4;
+  color:#eee3e9;
+}
+
+/* ---------- DUA ---------- */
+
+.dua-section{
+  background:
+    radial-gradient(circle at 50% 50%,rgba(126,100,124,.13),transparent 45%),
+    #09090d;
+  text-align:center;
+}
+
+.dua-mark{
+  font-family:'Cormorant Garamond',serif;
+  font-size:80px;
+  color:#bda5b7;
+  line-height:.5;
+  margin-bottom:35px;
+}
+
+.dua{
+  max-width:720px;
+  margin:auto;
+}
+
+.dua h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(43px,10vw,75px);
+  font-weight:500;
+  margin-bottom:35px;
+}
+
+.dua p{
+  font-family:'Cormorant Garamond',serif;
+  font-size:24px;
+  line-height:1.6;
+  color:#d4cdd3;
+}
+
+.dua-note{
+  margin-top:35px;
+  font-family:'Inter',sans-serif !important;
+  font-size:11px !important;
+  color:#88838b !important;
+  letter-spacing:1px;
+}
+
+/* ---------- FINAL ---------- */
+
+.final-section{
+  text-align:center;
+  min-height:90vh;
+  background:#07070b;
+}
+
+.final-content{
+  max-width:750px;
+}
+
+.final-small{
+  font-size:10px;
+  letter-spacing:5px;
+  text-transform:uppercase;
+  color:#817984;
+  margin-bottom:30px;
+}
+
+.final-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(45px,11vw,85px);
+  line-height:.95;
+  font-weight:500;
+}
+
+.final-title em{
+  color:#d9b9cc;
+}
+
+.final-message{
+  margin:35px auto;
+  max-width:500px;
+  color:#a6a1a8;
+  font-size:14px;
+  line-height:1.9;
+}
+
+.final-sign{
+  font-family:'Cormorant Garamond',serif;
+  font-size:30px;
+  font-style:italic;
+  color:#d9b9cc;
+}
+
+/* ---------- FOOTER ---------- */
+
+footer{
+  padding:30px;
+  text-align:center;
+  background:#050509;
+  color:#5f5962;
+  font-size:9px;
+  letter-spacing:2px;
+}
+
+/* ---------- ANIMATIONS ---------- */
+
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(30px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@keyframes float{
+  0%,100%{
+    transform:translateY(0);
+  }
+  50%{
+    transform:translateY(-35px);
+  }
+}
+
+/* ---------- MOBILE ---------- */
+
+@media(max-width:600px){
+
+  section{
+    padding:90px 20px;
+  }
+
+  .cards{
+    grid-template-columns:1fr;
+  }
+
+  .card{
+    min-height:180px;
+  }
+
+  .letter p{
+    font-size:14px;
+  }
+
+  .dua p{
+    font-size:21px;
+  }
+
+  .hero h2{
+    letter-spacing:-3px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- INTRO -->
+<div class="intro" id="intro">
+  <div class="intro-inner">
+    <div class="eyebrow">A little something for someone special</div>
+
+    <h1>
+      For
+      <span>Siluu.</span>
+    </h1>
+
+    <div class="intro-sub">
+      Some people deserve more than a birthday wish.
+      They deserve a little corner of the internet made just for them.
+    </div>
+
+    <button class="enter-btn" onclick="enterSite()">
+      OPEN YOUR SURPRISE&nbsp; →
+    </button>
+  </div>
+</div>
+
+
+<main>
+
+<!-- HERO -->
+<section class="hero">
+
+  <div class="particle" style="top:18%;left:15%;animation-delay:1s"></div>
+  <div class="particle" style="top:30%;left:80%;animation-delay:3s"></div>
+  <div class="particle" style="top:70%;left:20%;animation-delay:2s"></div>
+  <div class="particle" style="top:75%;left:85%;animation-delay:5s"></div>
+  <div class="particle" style="top:45%;left:8%;animation-delay:4s"></div>
+  <div class="particle" style="top:55%;left:92%;animation-delay:1.5s"></div>
+
+  <div class="hero-content">
+
+    <div class="hero-small">
+      September • A little celebration
+    </div>
+
+    <h2>
+      Happy
+      <span>Birthday.</span>
+    </h2>
+
+    <p class="hero-description">
+      Today isn't just about another year.
+      It's about celebrating the beautiful person
+      you've been becoming.
+    </p>
+
+  </div>
+</section>
+
+
+<!-- LETTER -->
+<section class="letter-section">
+
+  <div class="container letter">
+
+    <div class="section-number">01 / A LETTER FROM DIDI</div>
+
+    <h2 class="letter-title">
+      To my little<br>
+      <span class="highlight">baby sister.</span>
+    </h2>
+
+    <p>
+      Happy Birthday, Siluu! Many, many happy returns of the day, dear.
+      May Allah bless you abundantly with happiness, mercy, peace,
+      and countless beautiful moments.
+    </p>
+
+    <p>
+      May He guide you towards a future filled with
+      <span class="highlight">success, prosperity, and fulfilment.</span>
+      I know how sincerely you're working towards your dreams,
+      so keep giving your very best. Allah is always with you.
+    </p>
+
+    <p>
+      And In Sha Allah, a few years from now,
+      I'll proudly have my very own
+      <span class="highlight">personal doctor.</span> 🩺
+    </p>
+
+    <p>
+      My beautiful little baby, I genuinely cherish the time
+      I spend with you. You're my
+      <span class="highlight">laughter therapist</span>,
+      and somehow even the simplest moments become memorable
+      when you're around.
+    </p>
+
+    <p>
+      I hope you always keep that beautiful smile on your face
+      and accomplish everything your heart aspires to.
+      No matter how much you grow, you'll always be
+      my little sister.
+    </p>
+
+    <div class="signature">
+      With all my love,<br>
+      Your Didi ♡
+    </div>
+
+  </div>
+</section>
+
+
+<!-- CARDS -->
+<section class="cards-section">
+
+  <div class="container">
+
+    <div class="section-number">02 / THINGS ABOUT SILUU</div>
+
+    <h2 class="cards-title">
+      A few things<br>
+      about <span class="highlight">you.</span>
+    </h2>
+
+    <div class="cards">
+
+      <div class="card">
+        <div class="card-icon">🩺</div>
+        <h3>Future Doctor</h3>
+        <p>
+          One day I'll proudly tell everyone that my little sister
+          is a doctor. Until then, please don't forget your
+          future patient's appointments. 😌
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">😂</div>
+        <h3>Laughter Therapist</h3>
+        <p>
+          Officially responsible for fixing bad moods,
+          creating unnecessary laughter and making ordinary
+          conversations ten times more entertaining.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🎀</div>
+        <h3>Forever My Baby</h3>
+        <p>
+          You can grow older, become successful and achieve
+          everything you dream of—but you'll still be my
+          little sister at the end of the day.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">✨</div>
+        <h3>Keep Shining</h3>
+        <p>
+          Keep becoming the person you've always wanted to be.
+          Your dreams are worth the effort, and your journey
+          is worth believing in.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- EID -->
+<section class="eid-section">
+
+  <div class="container eid-content">
+
+    <div class="section-number">03 / A VERY SERIOUS PROMISE</div>
+
+    <h2 class="eid-title">
+      Your Eid<br>
+      <span class="highlight">treat awaits.</span>
+    </h2>
+
+    <p class="eid-text">
+      I have decided to make one extremely generous
+      and completely non-negotiable promise.
+    </p>
+
+    <button class="reveal-btn" onclick="revealFood()">
+      REVEAL THE PROMISE
+    </button>
+
+    <div class="food-reveal" id="foodReveal">
+      <p>
+        “This Eid, I'm paying.<br>
+        You choose the food.<br>
+        I'll handle the expenses.<br>
+        No arguments. 😂❤️”
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- DUA -->
+<section class="dua-section">
+
+  <div class="container dua">
+
+    <div class="section-number">04 / A DUA FOR YOU</div>
+
+    <div class="dua-mark">“</div>
+
+    <h2>
+      May Allah<br>
+      <span class="highlight">bless your journey.</span>
+    </h2>
+
+    <p>
+      May Allah place barakah in every step you take,
+      open doors of opportunity for you,
+      grant you success beyond what you imagine,
+      protect your heart from what isn't meant for you,
+      and bring you closer to everything that is good for you.
+    </p>
+
+    <p>
+      May He keep your smile genuine,
+      your heart peaceful,
+      and your dreams within reach.
+    </p>
+
+    <p class="dua-note">
+      A little dua from someone who will always be rooting for you.
+    </p>
+
+  </div>
+</section>
+
+
+<!-- FINAL -->
+<section class="final-section">
+
+  <div class="container final-content">
+
+    <div class="final-small">
+      05 / ONE LAST THING
+    </div>
+
+    <h2 class="final-title">
+      No matter how much you grow,<br>
+      you'll always be<br>
+      <em>my little sister.</em>
+    </h2>
+
+    <p class="final-message">
+      I'm genuinely lucky to have you in my life.
+      Keep smiling, keep dreaming, keep working hard,
+      and never forget how loved you are.
+    </p>
+
+    <div class="final-sign">
+      Happy Birthday, Siluu. 🎀<br><br>
+      — Sania ❤️
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  MADE WITH LOVE · FOR SILUU · FROM SANIA
+</footer>
+
+</main>
+
+
+<script>
+
+function enterSite(){
+
+  const intro = document.getElementById("intro");
+
+  intro.classList.add("hide");
+
+  setTimeout(function(){
+    document.body.style.overflow = "auto";
+    window.scrollTo({
+      top:0,
+      behavior:"smooth"
+    });
+  },500);
+
+  createConfetti();
+}
+
+
+function revealFood(){
+
+  const box = document.getElementById("foodReveal");
+
+  box.classList.toggle("show");
+
+  if(box.classList.contains("show")){
+    createConfetti();
+  }
+}
+
+
+function createConfetti(){
+
+  for(let i=0;i<35;i++){
+
+    const confetti = document.createElement("div");
+
+    confetti.style.position="fixed";
+    confetti.style.width="5px";
+    confetti.style.height="5px";
+    confetti.style.borderRadius="50%";
+    confetti.style.background="rgba(217,185,204,.8)";
+    confetti.style.left=Math.random()*100+"vw";
+    confetti.style.top="-10px";
+    confetti.style.zIndex="10000";
+    confetti.style.pointerEvents="none";
+
+    document.body.appendChild(confetti);
+
+    const duration=2500+Math.random()*2500;
+
+    confetti.animate([
+      {
+        transform:"translateY(0) rotate(0deg)",
+        opacity:1
+      },
+      {
+        transform:
+        "translateY(110vh) rotate("+Math.random()*720+"deg)",
+        opacity:0
+      }
+    ],{
+      duration:duration,
+      easing:"cubic-bezier(.2,.7,.3,1)"
+    });
+
+    setTimeout(()=>{
+      confetti.remove();
+    },duration);
+  }
+}
+
+
+/* gentle reveal animation when sections enter */
+
+const observer = new IntersectionObserver(
+  entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.style.animation="fadeUp 1s ease forwards";
+      }
+    });
+  },
+  {threshold:.12}
+);
+
+document.querySelectorAll(
+  ".letter,.card,.dua,.final-content,.eid-content"
+).forEach(el=>{
+  el.style.opacity="0";
+  observer.observe(el);
+});
+
+</script>
+
+</body>
+</html>
